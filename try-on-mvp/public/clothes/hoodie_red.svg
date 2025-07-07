@@ -1,0 +1,18 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red Hoodie -->
+  <path d="M200,200 L350,150 L450,150 L600,200 L650,350 L600,350 L600,800 L200,800 L200,350 L150,350 Z" 
+        fill="#ef4444" stroke="#b91c1c" stroke-width="5" />
+  
+  <!-- Hood -->
+  <path d="M350,150 C350,100 450,100 450,150" fill="#ef4444" stroke="#b91c1c" stroke-width="5" />
+  
+  <!-- Hood opening -->
+  <path d="M375,150 C375,120 425,120 425,150" fill="none" stroke="#b91c1c" stroke-width="5" />
+  
+  <!-- Pocket -->
+  <path d="M300,500 L500,500 L500,600 L300,600 Z" fill="#dc2626" stroke="#b91c1c" stroke-width="5" />
+  
+  <!-- Sleeve lines -->
+  <path d="M200,350 L150,350" fill="none" stroke="#b91c1c" stroke-width="5" />
+  <path d="M600,350 L650,350" fill="none" stroke="#b91c1c" stroke-width="5" />
+</svg>

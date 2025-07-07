@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zylokart Try-On MVP
+
+A web-based virtual try-on application built with Next.js and Firebase. This application allows users to upload their photos and try on different clothing items virtually.
+
+## Features
+
+- User authentication (email/password)
+- Upload profile photos to Firebase Storage
+- Virtual try-on with image overlay technology
+- Save and view try-on history
+- Responsive design with Tailwind CSS
+
+## Tech Stack
+
+- Next.js (App Router)
+- Firebase (Authentication, Firestore, Storage)
+- Tailwind CSS
+- react-firebase-hooks
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+- Firebase account
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd try-on-mvp
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables
+
+Create a `.env.local` file in the root directory with your Firebase configuration:
+
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
+```
+
+4. Run the development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Firebase Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new Firebase project at [https://console.firebase.google.com/](https://console.firebase.google.com/)
+2. Enable Authentication with Email/Password provider
+3. Create a Firestore database
+4. Set up Firebase Storage
+5. Add the Firebase configuration to your `.env.local` file
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/app
+  /auth
+    /login
+      page.jsx
+    /register
+      page.jsx
+  /dashboard
+    page.jsx
+  layout.jsx
+  page.jsx
+/components
+  Navbar.jsx
+  ClothingItem.jsx
+  TryOnPreview.jsx
+/context
+  AuthContext.js
+/lib
+  firebase.js
+/public
+  [assets]
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment to Firebase
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Install Firebase CLI
 
-## Deploy on Vercel
+```bash
+npm install -g firebase-tools
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Login to Firebase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+firebase login
+```
+
+3. Initialize Firebase in your project
+
+```bash
+firebase init
+```
+
+Select the following options:
+- Hosting
+- Use an existing project (select your Firebase project)
+- Specify `out` as your public directory
+- Configure as a single-page app: No
+- Set up automatic builds and deploys with GitHub: No (or Yes if you want to)
+
+4. Build your Next.js application
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+5. Export your Next.js application
+
+Add the following script to your `package.json`:
+
+```json
+"scripts": {
+  "export": "next export"
+}
+```
+
+Then run:
+
+```bash
+npm run export
+# or
+yarn export
+```
+
+6. Deploy to Firebase
+
+```bash
+firebase deploy
+```
+
+## License
+
+This project is licensed under the MIT License.
